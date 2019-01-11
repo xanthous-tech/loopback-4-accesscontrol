@@ -1,0 +1,54 @@
+{
+  "name": "loopback-4-accesscontrol",
+  "version": "1.0.0",
+  "description": "An access control extension for loopback",
+  "keywords": [
+    "loopback-extension",
+    "loopback"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.9"
+  },
+  "scripts": {
+    "build:apidocs": "lb-apidocs",
+    "build": "lb-tsc es2017 --outDir dist",
+    "build:watch": "lb-tsc --watch",
+    "clean": "lb-clean dist",
+    "lint": "npm run prettier:check && npm run tslint",
+    "lint:fix": "npm run tslint:fix && npm run prettier:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "tslint": "lb-tslint",
+    "tslint:fix": "npm run tslint -- --fix",
+    "pretest": "npm run clean && npm run build",
+    "posttest": "npm run lint",
+    "prepublishOnly": "npm run test"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "",
+  "files": [
+    "README.md",
+    "index.js",
+    "index.d.ts",
+    "dist/src",
+    "dist/index*",
+    "src"
+  ],
+  "dependencies": {
+    "@loopback/boot": "^1.0.3",
+    "@loopback/context": "^1.0.1",
+    "@loopback/core": "^1.0.1",
+    "@loopback/rest": "^1.5.1",
+    "accesscontrol": "^2.2.1"
+  },
+  "devDependencies": {
+    "@loopback/build": "^1.0.1",
+    "@loopback/testlab": "^1.0.1",
+    "@types/node": "^10.11.2"
+  }
+}
