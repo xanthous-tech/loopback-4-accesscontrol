@@ -1,5 +1,34 @@
-import { Request } from '@loopback/rest';
-import { AccessControl } from 'accesscontrol';
+import {Request} from '@loopback/rest';
+import {AccessControl} from 'accesscontrol';
+
+export interface AccessControlOptions {
+  grants: GrantObject[];
+}
+
+/**
+ * Single grant entry for accesscontrol to assert on.
+ */
+export interface GrantObject {
+  /**
+   * Role to grant permission to.
+   */
+  role: string;
+
+  /**
+   * Resource to grant permission for.
+   */
+  resource: string;
+
+  /**
+   * Resource to grant permission for.
+   */
+  action: string;
+
+  /**
+   * Resource to grant permission for.
+   */
+  attributes: string;
+}
 
 /**
  * Access control metadata stored via Reflection API
@@ -48,4 +77,4 @@ export interface Roles {
 /**
  * A helper class to build roles.
  */
-export class GuardBuilder extends AccessControl { }
+export class GuardBuilder extends AccessControl {}

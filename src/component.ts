@@ -1,32 +1,17 @@
+import {Component, ProviderMap} from '@loopback/core';
+
+import {AccessBindings} from './keys';
+
 import {
-  MethodDecoratorFactory,
-  Constructor,
-  MetadataInspector,
-} from '@loopback/core';
+  AccessMetadataProvider,
+  AccessGuardProvider,
+  AccessActionProvider,
+} from './providers';
 
-import {AccessMetadata} from './types';
-import {ACCESS_METADATA_KEY} from './keys';
-
-/**
- * Mark a controller method for access control.
- */
-export function access(...options: AccessMetadata[]) {
-  return MethodDecoratorFactory.createDecorator<AccessMetadata[]>(
-    ACCESS_METADATA_KEY,
-    options,
-  );
-}
-
-/**
- * Fetch access metadata stored by `@access` decorator.
- */
-export function getAccessMetadata(
-  controllerClass: Constructor<{}>,
-  methodName: string,
-): AccessMetadata[] | undefined {
-  return MetadataInspector.getMethodMetadata<AccessMetadata[]>(
-    ACCESS_METADATA_KEY,
-    controllerClass.prototype,
-    methodName,
-  );
+export class AccessComponent implements Component {
+  providers?: ProviderMap = {
+    [AccessBindings.METADATA.key]: AccessMetadataProvider,
+    [AccessBindings.ACCESS.key]: AccessActionProvider,
+    [AccessBindings.GUARD.key]: AccessGuardProvider,
+  };
 }

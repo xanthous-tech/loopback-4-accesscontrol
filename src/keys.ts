@@ -1,4 +1,5 @@
 import {MetadataAccessor, BindingKey} from '@loopback/core';
+
 import {AccessMetadata, Roles, GuardBuilder, AccessAction} from './types';
 
 export namespace AccessBindings {
