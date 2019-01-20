@@ -1,8 +1,11 @@
 # loopback-4-accesscontrol
 
 This is a very simple wrapper around https://github.com/onury/accesscontrol.
+Currently, it is missing most of the functionality from this package. Any feature requests are welcome!
 
 ## Getting Started
+
+Here are some steps to get started using this extension. There is also an example app in [this repository](https://github.com/xanthous-tech/loopback-4-playground)
 
 ```
 npm install --save loopback-4-accesscontrol
