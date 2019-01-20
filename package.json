@@ -21,10 +21,7 @@
     "prettier:check": "npm run prettier:cli -- -l",
     "prettier:fix": "npm run prettier:cli -- --write",
     "tslint": "lb-tslint",
-    "tslint:fix": "npm run tslint -- --fix",
-    "pretest": "npm run clean && npm run build",
-    "posttest": "npm run lint",
-    "prepublishOnly": "npm run test"
+    "tslint:fix": "npm run tslint -- --fix"
   },
   "repository": {
     "type": "git"
