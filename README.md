@@ -1,5 +1,7 @@
 # loopback-4-accesscontrol
 
+This is a very simple wrapper around https://github.com/onury/accesscontrol.
+
 ## Getting Started
 
 ```
